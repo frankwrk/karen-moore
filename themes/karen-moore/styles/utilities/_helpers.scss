@@ -1,0 +1,117 @@
+/* ==========================================================================
+// Helpers
+============================================================================= */
+
+%clearfix {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+%wrap {
+
+    padding: 0 em(24px);
+    margin-left: auto;
+	margin-right: auto;
+    // z-index: 999;
+}
+
+
+a {
+	// // color: white;
+	// text-decoration: none;
+}
+// Screen Reader Text
+
+.srt {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.absolute {
+	@include m(center) {
+		@include absolutecenter('both');
+		@include m(contact) {
+			top: 52%;
+		}
+	}
+	@include m(v) {
+		@include absolutecenter('y');
+	}
+	@include m(h) {
+		@include absolutecenter('x');
+	}
+}
+
+//z-depth
+
+.z-depth {
+	@include m(small) {
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+	}
+	@include m(footer) {
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+	}
+}
+
+//border radius
+.b-radius {
+	@include m(default) {
+		border-radius: $border-radius;
+	}
+}
+
+.box-shadow{
+	box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.25);
+	@include m(bottom){
+		box-shadow: 0px 25px 30px -15px rgba(0,0,0,0.25);
+	}
+	@include m(top){
+		box-shadow: 0px 25px 30px 30px rgba(0,0,0,0.25);
+	}
+}
+
+.bold{
+	font-family: $academy-bold!important;
+}
+
+.demi-bold{
+	font-family: $academy-demi-bold!important;
+}
+
+.xxlarge-font{
+	font-size: 150px;
+}
+
+.right-border{
+	// border-right: 1px solid #b7b7b7;
+	position: relative;
+	&:after{
+		position: absolute;
+		content: '';
+		height: 50%;
+		width: 1px;
+		background-color: #b7b7b7;
+		top: 10%;
+		right: 0;
+		display: block;
+	}
+	&:last-child:after{
+		position: absolute;
+		content: '';
+		height: 0%;
+		width: 0px;
+		background-color: none;
+		top: 10%;
+		right: 0;
+		display: block;
+	}
+}

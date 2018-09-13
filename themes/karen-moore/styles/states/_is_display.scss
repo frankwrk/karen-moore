@@ -1,0 +1,81 @@
+.is-block {
+	display: block;
+}
+
+.is-active {
+	display: block;
+}
+
+.is-hidden {
+	display: none;
+}
+
+.is-desktop {
+	display: block;
+	@include bp(lg) {
+		display: none;
+	}
+	@include m(small) {
+		display: block;
+		@include bp(sm) {
+			display: none;
+		}
+	}
+	@include m(flex){
+		display: flex;
+		@include bp(lg) {
+			display: none;
+		}
+		@include m(small) {
+			display: flex;
+			@include bp(sm) {
+				display: none;
+			}
+		}
+	}
+}
+
+.is-tablet {
+	display: none;
+	@include bp(lg) {
+		display: block;
+	}
+	@include bp(sm) {
+		display: none;
+	}
+	@include m(flex) {
+		display: none;
+		@include bp(lg) {
+			display: flex;
+		}
+		@include bp(sm) {
+			display: none;
+		}
+	}
+}
+
+
+.not-desktop {
+	display: none;
+	@include bp(lg) {
+		display: block;
+	}
+	@include m(flex) {
+		display: none;
+		@include bp(lg) {
+			display: flex;
+		}
+	}
+}
+.is-mobile {
+	display: none;
+	@include bp(sm) {
+		display: block;
+	}
+	@include m(flex){
+		display: none;
+		@include bp(sm) {
+			display: flex;
+		}
+	}
+}

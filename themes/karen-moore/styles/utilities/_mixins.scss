@@ -1,0 +1,387 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+// BEM selectors
+
+@mixin e($element) {
+	&__#{$element} {
+		@content;
+	}
+}
+
+@mixin m($modifier) {
+	&--#{$modifier} {
+		@content;
+	}
+}
+
+// Media Queries
+
+@mixin bp($point) {
+
+    @if $point == xxxl { // 1200px
+        @media (max-width: 1200px) { @content; }
+    }
+    @else if $point == xxl { // 1100
+        @media (max-width: 1100px) { @content; }
+    }
+
+
+    @else if $point == xl { // 1050px
+        @media (max-width: 1050px) { @content; }
+    }
+    @else if $point == nav { // 1000px
+        @media (max-width: 1000px) { @content; }
+    }
+    @else if $point == lg { // 960px
+        @media (max-width: 992px) { @content; }
+    }
+
+
+    @else if $point == md { // 768px
+        @media (max-width: 768px)  { @content; }
+    }
+
+    @else if $point == sm { // 600px
+        @media (max-width: 600px)  { @content; }
+    }
+
+    @else if $point == xs { // 479px
+        @media (max-width: 479px)  { @content; }
+    }
+    @else if $point == xxs { // 320px (iphone 5)
+        @media (max-width: 320px)  { @content; }
+    }
+
+
+}
+
+// Generate modifier color classes
+
+@mixin bg-colors($map) {
+    @each $theme, $color in $map {
+        &--#{$theme} {
+            background-color: $color;
+        }
+    }
+}
+
+@mixin bg-hover($map) {
+    @each $theme, $color in $map {
+        &--#{$theme} {
+            @include transition(all 0.3s ease);
+            &:hover {
+                background-color: $color;
+                border-color: $color;
+            }
+        }
+    }
+}
+
+
+
+
+@mixin text-colors($map) {
+    @each $theme, $color in $map {
+        &--#{$theme} {
+            color: $color;
+            &:hover {
+                color: $color;
+            }
+        }
+    }
+}
+
+@mixin placeholder-colors($map) {
+    @each $theme, $color in $map {
+        &--#{$theme} {
+            &::placeholder {
+                color: $color;
+
+            }
+        }
+    }
+}
+
+@mixin hover-colors($map) {
+    @each $theme, $color in $map {
+        &--#{$theme} {
+            transition: all 0.3s ease;
+            &:hover {
+                color: $color;
+            }
+        }
+    }
+}
+
+@mixin border-colors($map) {
+    @each $theme, $color in $map {
+        &--#{$theme} {
+            border-color: $color;
+        }
+    }
+}
+
+
+// Image replacement
+
+@mixin img-replace($img, $w, $h, $disp: block) {
+    background-image: url('#{$path--rel}/#{$img}');
+    background-repeat: no-repeat;
+    width: $w;
+    height: $h;
+    display: $disp;
+}
+
+
+//Absolute Center
+@mixin absolutecenter($axis: "both"){
+  position:absolute;
+  @if $axis == "y"{
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @if $axis == "x"{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $axis == "both"{
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+//Border Radius
+@mixin border-radius {
+    border-radius: $border-radius;
+}
+
+@mixin ellipsis(){
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    width: 100%;
+}
+
+//placeholder color
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+
+@mixin placeholder {
+    @include optional-at-root('::-webkit-input-placeholder') {
+        @content;
+    }
+    @include optional-at-root(':-moz-placeholder') {
+        @content;
+    }
+    @include optional-at-root('::-moz-placeholder') {
+        @content;
+    }
+    @include optional-at-root(':-ms-input-placeholder') {
+        @content;
+    }
+}
+
+//Angled Edges
+@function ae-str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + ae-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+/// Encode SVG to use as background.
+///
+/// @param  {String}  $string
+/// @return {String}  Encoded svg data
+///
+@function ae-svg-encode($string){
+    $result: ae-str-replace($string, '<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+    $result: ae-str-replace($result, '%', '%25');
+    $result: ae-str-replace($result, '"', '\'');
+    $result: ae-str-replace($result, '<', '%3C');
+    $result: ae-str-replace($result, '>', '%3E');
+
+    @return 'data:image/svg+xml,' + $result;
+}
+
+/// Outputs pseudo content for main mixin.
+///
+/// @author Joseph Fusco
+///
+/// @param  {String}  $location
+/// @param  {Number}  $height
+/// @output psuedo content
+///
+@mixin ae-pseudo($wedge, $height, $width) {
+    background-image: url($wedge);
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    // full width wedge - needed as Firefox ignores preserveAspectRatio="none" in this case
+    @if ($width == null) {
+        background-size: 100% 100%;
+    }
+
+    content: '';
+    height: $height * 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+//-------------------------------------------------------------------------------------
+// Angled Edges v2.0.0 (https://github.com/josephfusco/angled-edges)
+// Copyright 2017 Joseph Fusco
+// Licensed under MIT (https://github.com/josephfusco/angled-edges/blob/master/LICENSE)
+//-------------------------------------------------------------------------------------
+
+/// Replace `$search` with `$replace` in `$string`.
+///
+/// @author Hugo Giraudel
+/// @link   http://www.sassmeister.com/gist/1b4f2da5527830088e4d
+///
+/// @param  {String}  $string - Initial string
+/// @param  {String}  $search - Substring to replace
+/// @param  {String}  $replace ('') - New value
+/// @return {String}  Updated string
+///
+@function ae-str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + ae-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+/// Encode SVG to use as background.
+///
+/// @param  {String}  $string
+/// @return {String}  Encoded svg data
+///
+@function ae-svg-encode($string){
+    $result: ae-str-replace($string, '<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+    $result: ae-str-replace($result, '%', '%25');
+    $result: ae-str-replace($result, '"', '\'');
+    $result: ae-str-replace($result, '<', '%3C');
+    $result: ae-str-replace($result, '>', '%3E');
+
+    @return 'data:image/svg+xml,' + $result;
+}
+
+/// Outputs pseudo content for main mixin.
+///
+/// @author Joseph Fusco
+///
+/// @param  {String}  $location
+/// @param  {Number}  $height
+/// @output psuedo content
+///
+@mixin ae-pseudo($wedge, $height, $width) {
+    background-image: url($wedge);
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    // full width wedge - needed as Firefox ignores preserveAspectRatio="none" in this case
+    @if ($width == null) {
+        background-size: 100% 100%;
+    }
+
+    content: '';
+    height: $height * 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+/// Attatches an svg wedge shape to an element.
+///
+
+///
+/// @param  {String}  $location   - 'inside top', 'outside top', 'inside bottom', 'outside bottom'
+/// @param  {String}  $hypotenuse - 'upper left', 'upper right', 'lower left', 'lower right'
+/// @param  {Color}   $fill
+/// @param  {Number}  $height
+/// @param  {Number}  $width
+/// @output '::before' and/or '::after' with svg background image
+///
+@mixin angled-edge($location, $hypotenuse, $fill, $height: 100, $width: null) {
+
+    position: relative;
+
+    $points: (
+        'upper left': '0,#{$height} #{$width},#{$height} #{$width},0',
+        'upper right': '0,#{$height} #{$width},#{$height} 0,0',
+        'lower left': '0,0 #{$width},#{$height} #{$width},0',
+        'lower right': '0,0 #{$width},0 0,#{$height}'
+    );
+
+    // full width wedge
+    @if ($width == null) {
+        $points: (
+            'upper left': '0,#{$height} 100,#{$height} 100,0',
+            'upper right': '0,#{$height} 100,#{$height} 0,0',
+            'lower left': '0,0 100,#{$height} 100,0',
+            'lower right': '0,0 100,0 0,#{$height}'
+        );
+    }
+
+    // ensure $fill color is using rgb()
+    $fill-rgb: 'rgb(' + round(red($fill)) + ',' + round(green($fill)) + ',' + round(blue($fill)) + ')';
+
+    // capture alpha component of $fill to use with fill-opacity
+    $fill-alpha: alpha($fill);
+
+    $wedge: '<svg width="#{$width}" height="#{$height}" fill="#{$fill-rgb}" fill-opacity="#{$fill-alpha}"><polygon points="#{map-get($points, $hypotenuse)}"></polygon></svg>';
+
+    // full width wedge
+    @if ($width == null) {
+        $wedge: '<svg preserveAspectRatio="none" viewBox="0 0 100 #{$height}" fill="#{$fill-rgb}" fill-opacity="#{$fill-alpha}"><polygon points="#{map-get($points, $hypotenuse)}"></polygon></svg>';
+    }
+
+    $encoded-wedge: ae-svg-encode($wedge);
+
+    @if ($location == 'inside top') {
+        &::before {
+            @include ae-pseudo($encoded-wedge, $height, $width);
+            top: 0;
+        }
+    } @else if ($location == 'outside top') {
+        &::before {
+            @include ae-pseudo($encoded-wedge, $height, $width);
+            top: -$height * 1px;
+        }
+    } @else if ($location == 'inside bottom') {
+        &::after {
+            @include ae-pseudo($encoded-wedge, $height, $width);
+            bottom: 0;
+        }
+    } @else if ($location == 'outside bottom') {
+        &::after {
+            @include ae-pseudo($encoded-wedge, $height, $width);
+            bottom: -$height * 1px;
+        }
+    } @else {
+        @error 'Invalid argument for $location - must use: `inside top`, `outside top`, `inside bottom`, `outside bottom`';
+    }
+
+    @if (map-has-key($points, $hypotenuse) == false) {
+        @error 'Invalid argument for $hypotenuse - must use: `upper left`, `upper right`, `lower left`, `lower right`';
+    }
+}

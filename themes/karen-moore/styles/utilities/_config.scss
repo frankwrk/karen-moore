@@ -1,0 +1,105 @@
+
+// // ==========================================================================
+// // Global Config
+// // ==========================================================================
+
+
+// Font Stack
+
+
+@font-face {
+  	font-family:'academy-light';
+
+  	src: url('../fonts/academy-sans/AcademySans.eot'); /* IE9 Compat Modes */
+  	src: url('../fonts/academy-sans/AcademySans.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/academy-sans/AcademySans.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/academy-sans/AcademySans.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/academy-sans/AcademySans.svg#academy-light') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  	font-family:'academy-demi-bold';
+
+  	src: url('../fonts/academy-sans/AcademySans-DemiBold.eot'); /* IE9 Compat Modes */
+  	src: url('../fonts/academy-sans/AcademySans-DemiBold.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/academy-sans/AcademySans-DemiBold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/academy-sans/AcademySans-DemiBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/academy-sans/AcademySans-DemiBold.svg#academy-demi-bold') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  	font-family:'academy-bold';
+
+  	src: url('../fonts/academy-sans/AcademySans-Bold.eot'); /* IE9 Compat Modes */
+  	src: url('../fonts/academy-sans/AcademySans-Bold.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/academy-sans/AcademySans-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/academy-sans/AcademySans-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/academy-sans/AcademySans-Bold.svg#academy-bold') format('svg'); /* Legacy iOS */
+}
+
+
+
+$academy-light    : 'academy-light', sans-serif;
+$academy-demi-bold  : 'academy-demi-bold', sans-serif;
+$academy-bold    : 'academy-bold', sans-serif;
+
+//Description Base Colors
+
+$main-blue       : #003352;
+$nav-blue        : #0067c2;
+$black           : #000000; //100% black
+$ruby-red        : #af2b3f;
+$white			     : #ffffff;
+$grey            : #f1f2f2;
+$dk-grey         : #dcddde;
+$bby-blue        : #ecf9fe;
+$sky-blue        : #d1f0fc;
+
+$color-primary    : $main-blue;
+$color-secondary  : $nav-blue;
+// $color-accent     : $nav-blue;
+
+
+$blue-gradient: linear-gradient(-180deg, #00D7F8 0%, #00AEEF 100%);
+$blue-gradient--alt: linear-gradient(-270deg, #00D7F8 0%, #00AEEF 100%);
+
+
+// Color Palette Modifiers
+$color-palettes: (
+  black: (
+    xx-light  : lighten($black, 30%),
+    x-light   : lighten($black, 20%),
+    light     : lighten($black, 10%),
+    base      : $black,
+    dark      : darken($black, 10%),
+    x-dark    : darken($black, 30%)
+  ),
+
+
+
+);
+
+//ui colors
+
+$ui-colors: (
+	default     : $color-primary,
+	secondary   : $color-secondary,
+	white       : $white,
+	black       : $black,
+  ruby-red    : $ruby-red,
+	// grey        : $shuttle-grey,
+  grey        : $grey,
+  dk-grey     : $dk-grey,
+  bby-blue    : $bby-blue,
+  sky-blue    : $sky-blue,
+);
+
+
+
+
+// // // Text
+$grid__base-font : 22px;
+$base__font-size : 22px;
+$base__line      : 28px;
+
+$border-radius   : 5px;

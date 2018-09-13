@@ -1,0 +1,42 @@
+/* ==========================================================================
+  #Typography
+
+	// 1. UI Palettes
+	// 2. Headlines
+	// 3. Type Styles
+
+=========================================================================== */
+
+
+
+/* 1. UI Palettes
+========================================================================== */
+.text {
+  @include text-colors($ui-colors);
+}
+
+
+.hover-state {
+	@include hover-colors($ui-colors);
+}
+
+/* 2. Headlines
+========================================================================== */
+
+.headline {
+	@include m(one) {
+		@extend %hdln-one;
+	}
+	@include m(two) {
+		@extend %hdln-two;
+	}
+	@include m(three) {
+		@extend %hdln-three;
+	}
+	@include m(four) {
+		@extend %hdln-four;
+	}
+	@include m(five) {
+		@extend %hdln-five;
+	}
+}

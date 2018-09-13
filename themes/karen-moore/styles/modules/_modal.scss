@@ -1,0 +1,78 @@
+#safetyInformation .modal-dialog{
+  max-width: 900px;
+}
+
+#safetyInformation .modal-header{
+  padding: 10px 10px 0px 0px;
+  border-bottom: 0px;
+  background-color: $grey;
+  border-radius: 0px;
+}
+//
+// .modal-content {
+// 	@include m(no-bg) {
+// 		background-color: transparent;
+// 		border: none;
+// 	}
+// }
+
+.no-background{
+  background-color: transparent;
+  border: none;
+}
+
+.healthcare-professinals{
+  border: 3px solid $color-secondary;
+  border-radius: 5px;
+}
+
+#healthcareProfessionals .modal-header {
+  border-bottom: 0px;
+  .close{
+    padding: 10px 0px 10px 0px;
+  }
+}
+
+#applyEnstilar .modal-header {
+  border-bottom: 0px;
+  .close{
+    padding: 10px 0px 10px 0px;
+  }
+}
+
+#applyEnstilar .modal-dialog{
+  max-width: 655px!important;
+}
+
+#activateCard .modal-header {
+  border-bottom: 0px;
+  .close{
+    padding: 10px 0px 10px 0px;
+  }
+}
+
+#activateCard .modal-dialog{
+  max-width: 600px;
+}
+
+#eligibilityCriteria .modal-header {
+  border-bottom: 0px;
+  .close{
+    padding: 10px 0px 10px 0px;
+  }
+}
+
+#eligibilityCriteria .modal-dialog{
+  max-width: 800px;
+}
+
+#requestCard .modal-header {
+  border-bottom: 0px;
+  .close{
+    padding: 10px 0px 10px 0px;
+  }
+}
+
+#requestCard .modal-dialog{
+  max-width: 600px;
+}

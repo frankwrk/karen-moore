@@ -1,0 +1,19 @@
+/* ==========================================================================
+// Layout
+============================================================================= */
+// 1. Standard Page Layout Options
+// 2. Background Styles / Section Background Images
+// 3. Body Content Fade In and Fade Out
+// 4. Header
+// 5. Footer
+
+/* 1. Standard Page Layout Options
+========================================================================== */
+
+.container {
+	@include bg-colors($ui-colors);
+}
+
+.border {
+	@include border-colors($ui-colors);
+}

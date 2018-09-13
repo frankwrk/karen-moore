@@ -1,0 +1,164 @@
+// ==========================================================================
+// Extends
+// ==========================================================================
+
+
+// 1. Typography
+////////////////////////////////////////////////////////////////////////////
+
+%hdln-one {
+	// font-family: $academy-bold;
+	font-family: $academy-light;
+	font-size: 55px;
+	line-height: 60px;
+	letter-spacing: 0;
+	font-weight: 300;
+}
+
+%hdln-two {
+	font-family: $academy-light;
+	font-size: 36px;
+	line-height: 40px;
+	letter-spacing: 1px;
+	// font-weight: 500;
+	font-weight: 300;
+
+}
+
+%hdln-three {
+	font-family: $academy-light;
+	font-size: 32px;
+	line-height: 42px;
+	// letter-spacing: 1px;
+	// font-weight: 700;
+	font-weight: 300;
+
+}
+
+%hdln-four {
+	font-family: $academy-light;
+	font-size: 24px;
+	line-height: 32px;
+	letter-spacing: 1px;
+	// font-weight: 500;
+	font-weight: 300;
+
+}
+%hdln-five {
+	font-family: $academy-light;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0;
+	font-weight: 300;
+
+}
+
+%p-style {
+	font-family: $academy-light;
+	font-size: 22px;
+	font-weight: 300;
+	// line-height: 30px;
+	// letter-spacing: 0.7px;
+	// font-weight: 300;
+}
+
+%small {
+	font-family: $academy-light;
+	font-size: 12px;
+	font-weight: 300;
+	// line-height: 20px;
+	// letter-spacing: 0.6px;
+}
+
+%a-style {
+	font-family: $academy-demi-bold;
+	// font-family: $academy-light;
+	font-size: 18px;
+	font-weight: 300;
+	height: 100%
+	// line-height: 22px;
+	// letter-spacing: 0.5px;
+}
+
+%p-link-primary {
+	// color: white;
+	// font-family: $academy-light;
+	font-size: 22px;
+	line-height: 26px;
+	// background-color: $color-primary
+}
+
+%p-link-secondary {
+	color: #0602b7;
+	text-decoration: underline;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+
+
+// 2. Buttons
+////////////////////////////////////////////////////////////////////////////
+
+%btn-text-style {
+	font-family: $academy-demi-bold;
+	font-size: 18px;
+}
+
+%btn-style {
+	border-radius: $border-radius;
+	color: white;
+	// padding: 6px 4px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	transition: 0.5s;
+	max-width: 200px;
+	// min-width: 240px;
+	width: 100%;
+	// display: inline-block;
+	// &:after {
+	// 	position: absolute;
+	// 	transition: 0.5s;
+	// 	content: '';
+	// 	width: 0;
+	// 	left: auto;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	height: 3px;
+	// }
+	&:hover {
+		cursor: pointer;
+		// &:after {
+		// 	width: 100%;
+		// 	left: 0;
+		// }
+	}
+}
+
+%btn-style--secondary {
+	border: 2px solid transparent;
+	padding: 5px 0 10px;
+	text-align: left;
+}
+
+%font-awesome-font {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal;
+}
+
+
+// 2. Navigation
+////////////////////////////////////////////////////////////////////////////
+%nav-item {
+	text-decoration: none;
+	color: $black;
+	display: block;
+	transition: all 0.3s ease;
+}
+
+%nav-link-style {
+	padding-left: 25px;
+	padding-right: 25px;
+}

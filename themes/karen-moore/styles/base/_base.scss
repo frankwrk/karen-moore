@@ -1,0 +1,134 @@
+/* ==========================================================================
+// Base Styles
+============================================================================= */
+
+
+* {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+}
+
+html {
+	font-size: 18px;
+}
+
+body {
+	font-size: $base--font-size;
+	font-family: $academy-light;
+	line-height: $base__line;
+	// letter-spacing: 0.7px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: $black;
+	overflow-x: hidden;
+}
+
+body {
+  	opacity: 0;
+ 	visibility: hidden;
+ 	position: relative;
+ 	transition: opacity 0.3s ease;
+}
+
+.fontawesome-i2svg-active body {
+	opacity: 1;
+	visibility: visible;
+  	display: block;
+}
+
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	// list-style-type: none;
+}
+
+input, textarea {
+	outline: 0;
+	// border: 0;
+	resize: none;
+}
+
+.wrap {
+	max-width: 1250px;
+	@extend %wrap;
+    @include m(sm) {
+		@extend %wrap;
+		max-width: 970px;
+    }
+    @include m(xs) {
+		@extend %wrap;
+		max-width: 850px;
+    }
+
+}
+
+.main-content {
+	position: relative;
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: all .3s ease-in;
+    // padding-top: 70px;
+		@include bp(md){
+			padding-top: 135px;
+		}
+		@include bp(sm){
+			padding-top: 125px;
+		}
+}
+
+
+
+h1, h2, h3, h4, h5 {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	@extend %hdln-one;
+}
+
+h2 {
+	@extend %hdln-two;
+}
+
+h3 {
+	@extend %hdln-three;
+}
+
+h4 {
+	@extend %hdln-four;
+}
+
+h5 {
+	@extend %hdln-five;
+}
+
+p {
+	@extend %p-style;
+}
+
+a {
+	@extend %a-style;
+}
+
+.small {
+	@extend %small;
+}
+
+p a {
+	@extend %a-style;
+	@extend %p-link-primary;
+}
+
+.p-link-primary {
+	@extend %p-link-primary;
+}
+
+.p-link-secondary {
+	@extend %p-link-secondary;
+ }

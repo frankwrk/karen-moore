@@ -1,0 +1,101 @@
+/* ==========================================================================
+  #Buttons
+
+	// 1.General Button Styles
+
+
+=========================================================================== */
+
+
+
+/* 1. General Button Styles
+========================================================================== */
+.btn {
+	// @include bg-colors($ui-colors);
+	@extend %btn-text-style;
+	@include m(text) {
+		@extend %btn-text-style;
+	}
+	@include m(primary) {
+		@extend %btn-text-style;
+		@extend %btn-style;
+		a{
+			// display: flex;
+			// justify-content: center;
+		}
+	}
+	@include m(large) {
+		@extend %btn-text-style;
+		border-radius: $border-radius;
+		color: white;
+		// padding: 6px 10px;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+		transition: 0.5s;
+		max-width: 275px;
+		// min-width: 240px;
+		width: 100%;
+		// display: inline-block;
+		// &:after {
+		// 	position: absolute;
+		// 	transition: 0.5s;
+		// 	content: '';
+		// 	width: 0;
+		// 	left: auto;
+		// 	right: 0;
+		// 	bottom: 0;
+		// 	height: 3px;
+		// }
+		&:hover {
+			cursor: pointer;
+			// &:after {
+			// 	width: 100%;
+			// 	left: 0;
+			// }
+		}
+	}
+	@include m(small) {
+		@extend %btn-text-style;
+		border-radius: $border-radius;
+		color: white;
+		// padding: 6px 10px;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+		transition: 0.5s;
+		max-width: 125px;
+		// min-width: 240px;
+		width: 100%;
+		// display: inline-block;
+		// &:after {
+		// 	position: absolute;
+		// 	transition: 0.5s;
+		// 	content: '';
+		// 	width: 0;
+		// 	left: auto;
+		// 	right: 0;
+		// 	bottom: 0;
+		// 	height: 3px;
+		// }
+		&:hover {
+			cursor: pointer;
+			// &:after {
+			// 	width: 100%;
+			// 	left: 0;
+			// }
+		}
+	}
+}
+
+.submit-button{
+	color: white;
+	background-color: $color-primary;
+	font-size: 18px;
+	padding: 5px 28px;
+	border-radius: 5px;
+	font-family: $academy-demi-bold;
+	i{
+		margin-right: 13px;
+	}
+}

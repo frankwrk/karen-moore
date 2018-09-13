@@ -1,0 +1,42 @@
+{
+  "minify": true,
+  "options": [
+    "prefixes",
+    "hasEvent",
+    "mq",
+    "prefixed",
+    "prefixedCSS",
+    "html5printshiv",
+    "html5shiv",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/custom-elements",
+    "test/customevent",
+    "test/eventlistener",
+    "test/geolocation",
+    "test/hiddenscroll",
+    "test/json",
+    "test/pointerevents",
+    "test/queryselector",
+    "test/svg",
+    "test/touchevents",
+    "test/video",
+    "test/xdomainrequest",
+    "test/css/all",
+    "test/css/animations",
+    "test/css/appearance",
+    "test/css/flexbox",
+    "test/css/mediaqueries",
+    "test/css/objectfit",
+    "test/css/overflow-scrolling",
+    "test/css/supports",
+    "test/css/will-change",
+    "test/mediaquery/hovermq",
+    "test/mediaquery/pointermq",
+    "test/network/fetch",
+    "test/storage/localstorage",
+    "test/storage/sessionstorage",
+    "test/window/matchmedia"
+  ]
+}

@@ -1,0 +1,27 @@
+.gform_wrapper .field_sublabel_below .ginput_complex.ginput_container label, .gform_wrapper .field_sublabel_below div[class*=gfield_time_].ginput_container label{
+  display: none!important;
+}
+
+.gform_wrapper .field_sublabel_below .ginput_complex.ginput_container label, .gform_wrapper .field_sublabel_below div[class*=gfield_time_].ginput_container label{
+  display: none!important;
+}
+
+.contact-us input{
+  border-radius: 5px;
+  border-color: $grey;
+  border-style: inset;
+}
+
+.contact-us textarea{
+  border-radius: 5px;
+  border-color: $grey;
+  border-style: inset;
+}
+
+.gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium{
+  width: 100%!important;
+}
+
+body .gform_wrapper ul li.gfield{
+  margin-top: 0px!important;
+}

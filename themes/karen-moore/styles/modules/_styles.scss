@@ -1,0 +1,157 @@
+/* ==========================================================================
+  #Styles
+
+	// 1.Home Page (header styles)
+	// 2.Psoriasis Landing Page
+
+
+=========================================================================== */
+
+/* 1. Home Page (header styles)
+========================================================================== */
+
+.header{
+	@include m(home){
+		background-image: url('../images/backgrounds/HERO-IMAGE--HOME.png');
+		background-size: cover;
+		@include bp(sm){
+			background-image: none;
+		}
+	}
+}
+
+.home-fixed-height{
+	height: 175px;
+	max-height: 200px;
+	@include bp(md){
+		height: 300px;
+		// max-height: 250px;
+	}
+}
+
+/* 2. Psoriasis Landing Page
+========================================================================== */
+.small-bottom-border{
+	border-bottom: 1px solid black;
+}
+
+// .symptoms-triggers{
+// 	background-image: url('../images/symptoms-triggers.png');
+// 	background-size: cover;
+// 	@include bp(sm){
+// 		background-image: none;
+// 	}
+// }
+
+
+
+.topical-treatments .row .col-4{
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+.topical-treatments .row .col-8{
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+/* 3. Talk to Your Doctor
+========================================================================== */
+.red-number-list ol{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li{
+		counter-increment: step-counter;
+		padding: 20px 0px;
+		display: flex;
+		align-items: center;
+		@include bp(sm){
+			padding-right: 20px;
+		}
+	}
+}
+
+.red-number-list li:before{
+	content: counter(step-counter);
+	font-size: 75px;
+	color: $ruby-red;
+	// padding-top: 10px;
+	font-weight: 900;
+	margin-right: 15px;
+	padding-top: 17px;
+	padding-left: 25px;
+}
+
+/* 4. Works Fast
+========================================================================== */
+.combo-medication{
+	bottom: -33%;
+	left: 35%;
+	@include bp(md){
+		width: 60%;
+		left: 20%;
+		bottom: -43%;
+	}
+	@include bp(sm){
+		width: 70%;
+		left: 17%;
+		bottom: -57%;
+	}
+}
+
+
+/* 5. Applies Easily
+========================================================================== */
+.spray-can{
+	bottom: -55%;
+	right: 8%;
+	@include bp(md){
+		bottom: 25%;
+		right: 4%;
+	}
+	@include bp(sm){
+		bottom: 67%;
+		right: 8%;
+	}
+}
+
+/* 6. Before and After
+========================================================================== */
+.before-after-pics{
+	width: 830px;
+}
+
+.pic-description{
+	padding-top: 115px;
+}
+
+.circle-mobile{
+	background-color: #a8a8a8;
+	border-radius: 50px;
+	height: 50px;
+	width: 50px;
+}
+
+.line-mobile{
+	background-color: black;
+	height: 45px;
+	width: 2px;
+	@include m(long){
+		background-color: black;
+		height: 65px;
+		width: 2px;
+	}
+}
+
+.tablet-width{
+	@include m(baseline){
+		width: 46%;
+	}
+	@include m(week-1){
+		width: 40.5%;
+	}
+}
+
+.left-position{
+	left: 27%;
+}
