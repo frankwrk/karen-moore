@@ -1,4 +1,4 @@
-# Levelwing Wordpress Theme Boilerplate
+# Wordpress Theme Boilerplate
 *A repository best practices associated with wordpress theme development. Using this repo as a baseline when creating a new theme will ensure accuracy and consistency amongst all project. Please continue to edit and improve to keep with new trends and more streamlined workflows.*
 
 ---
@@ -13,6 +13,6 @@
 ## Grid Systems
 No grid system is built into this repository. If you would like to use one, please add it after cloning the repository. This repository does include tachyons which can be used as a the grid system.
 
-* Bootstrap, Foundation, Gridlex, Bulma, Skeleton are all perfectly suitable per Levelwing standards. 
+* Bootstrap, Foundation, Gridlex, Bulma, Skeleton are all perfectly suitable per Levelwing standards.
     * Whatever you are comfortable using and is within standard front end best practices.
 * If using bower components or npm to install grid system or other packages, please move to the **dependencies** folder as bower components and npm folders should be in a .gitignore file.
